@@ -7,10 +7,10 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
-import './layout.css';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,26 +23,22 @@ const Layout = ({ children }) => {
     }
   `);
 
-  return children;
-  // return (
-  //   <>
-  //     <Header siteTitle={data.site.siteMetadata.title} />
-  //     <div
-  //       style={{
-  //         margin: `0 auto`,
-  //         maxWidth: 960,
-  //         padding: `0 1.0875rem 1.45rem`,
-  //       }}
-  //     >
-  //       <main>{children}</main>
-  //       <footer>
-  //         © {new Date().getFullYear()}, Built with
-  //         {` `}
-  //         <a href="https://www.gatsbyjs.org">Gatsby</a>
-  //       </footer>
-  //     </div>
-  //   </>
-  // )
+  const LayoutSC = styled.div`
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1420px;
+    padding: 0 18px;
+  `;
+
+  return (
+    <>
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <LayoutSC>
+        <main>{children}</main>
+        <footer>© {new Date().getFullYear()}, Juanton Music</footer>
+      </LayoutSC>
+    </>
+  );
 };
 
 Layout.propTypes = {

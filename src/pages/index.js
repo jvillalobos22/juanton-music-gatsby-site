@@ -3,13 +3,12 @@ import { withPrefix } from 'gatsby';
 import GoogleFontLoader from 'react-google-font-loader';
 
 import SEO from '../components/seo';
-import Layout from '../components/layout';
 import juantonLogo from '../images/juanton_logo_cropped.png';
 
 import '../components/original.css';
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
     {typeof document !== 'undefined' && (
       <GoogleFontLoader
@@ -81,7 +80,7 @@ const IndexPage = () => (
         </div>
       </div>
     </div>
-  </Layout>
+  </>
 );
 
 export default IndexPage;
