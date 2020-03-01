@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -31,18 +31,23 @@ const Layout = ({ children }) => {
   `;
 
   return (
-    <>
+    <div className={className}>
       <Header siteTitle={data.site.siteMetadata.title} />
       <LayoutSC>
         <main>{children}</main>
         <footer>© {new Date().getFullYear()}, Juanton Music</footer>
       </LayoutSC>
-    </>
+    </div>
   );
 };
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string
+};
+
+Layout.defaultProps = {
+  className: ''
 };
 
 export default Layout;

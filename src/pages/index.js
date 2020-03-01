@@ -5,7 +5,7 @@ import GoogleFontLoader from 'react-google-font-loader';
 import SEO from '../components/seo';
 import juantonLogo from '../images/juanton_logo_cropped.png';
 
-import '../components/original.css';
+import '../components/css/original.css';
 
 const IndexPage = () => (
   <>
