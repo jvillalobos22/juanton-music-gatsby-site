@@ -1,65 +1,87 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { withPrefix } from 'gatsby';
+import GoogleFontLoader from 'react-google-font-loader';
 
-import SEO from "../components/seo"
+import SEO from '../components/seo';
+import Layout from '../components/layout';
+import juantonLogo from '../images/juanton_logo_cropped.png';
+
+import '../components/original.css';
 
 const IndexPage = () => (
-  <div class="full_width">
-    <div class="top">
-      <div class="wrapper">
-        <header class="logo">
-          <img
-            src="assets/img/juanton_logo_cropped.png"
-            alt="JV - Initials of Juan
+  <Layout>
+    <SEO title="Home" />
+    {typeof document !== 'undefined' && (
+      <GoogleFontLoader
+        fonts={[
+          {
+            font: 'Josefin Sans',
+            weights: [300, 400, 600, 700, '400i']
+          }
+        ]}
+        subsets={['cyrillic-ext', 'greek']}
+      />
+    )}
+    <div className="full_width">
+      <div className="top">
+        <div className="wrapper">
+          <header className="logo">
+            <img
+              src={juantonLogo}
+              alt="JV - Initials of Juan
                   Villalobos"
-          />
-          <SEO title="Home" />
-        </header>
-        <h3 class="heroline">Hi, I'm Juanton. I make beats.</h3>
-        <h2 class="name_position">Juanton</h2>
+            />
+          </header>
+          <h3 className="heroline">Hi, I&lsquo;m Juanton. I make beats.</h3>
+          <h2 className="name_position">Juanton</h2>
+        </div>
       </div>
-    </div>
-    <div class="bottom">
-      <div class="wrapper">
-        <header>
-          <ul class="nav">
-            <li>
-              <Link to="/page-2/">Home</Link>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Projects</a>
-            </li>
-            <li>
-              <a href="#">Say Hi</a>
-            </li>
-          </ul>
-        </header>
-        <h2 class="name_position">Music</h2>
-        <div class="coming_soon">
-          <h3>Site Coming Soon</h3>
-          <p>
-            I'm currently in the process of building out my website. In the
-            meantime, you can check out some of
-            <a target="_blank" href="https://soundcloud.com/juantonmusic">
-              my music on soundcloud!
-            </a>
-          </p>
-          <div class="button_container">
-            <a
+      <div className="bottom">
+        <div className="wrapper">
+          {/* <header>
+            <ul className="nav">
+              <li>
+                <Link to="/page-2/">Home</Link>
+              </li>
+            </ul>
+          </header> */}
+          <h2 className="name_position">Music</h2>
+          <div className="coming_soon">
+            <h3>Site Coming Soon</h3>
+            <p>
+              I&lsquo;m currently in the process of building out my website
+              using Gatsby. In the meantime, you can check out some of
+              {/* <Link to="/page-2/">&nbsp;my music on soundcloud!</Link> */}
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
+                href="https://soundcloud.com/juantonmusic"
+              >
+                &nbsp;my music on soundcloud!
+              </a>
+            </p>
+            <div className="button_container">
+              <a
+                className="button"
+                rel="noopener noreferrer"
+                href={withPrefix('/documents/JuantonEPK.pdf')}
+                target="_blank"
+              >
+                Juanton&lsquo;s EPK
+              </a>
+              {/* <a
               target="_blank"
-              class="button"
+              className="button"
               href="assets/documents/JuantonEPK.pdf"
             >
-              Juanton's EPK
-            </a>
+              Juanton&lsquo;s EPK
+            </a> */}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-)
+  </Layout>
+);
 
-export default IndexPage
+export default IndexPage;
