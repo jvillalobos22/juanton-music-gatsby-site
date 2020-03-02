@@ -69,8 +69,11 @@ const CallToAction = styled.div`
 `;
 
 const LinkToMusicButton = styled.a`
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
   text-transform: uppercase;
   font-weight: 300;
   letter-spacing: 3px;
@@ -97,7 +100,10 @@ const SecondPage = () => (
         />
         <CallToAction>
           <p>New music out now!</p>
-          <LinkToMusicButton href="#">Listen on Spotify</LinkToMusicButton>
+          <LinkToMusicButton href="#">Listen Now</LinkToMusicButton>
+          <LinkToMusicButton style={{ 'margin-left': '16px' }} href="#">
+            Enter Site
+          </LinkToMusicButton>
           {/* <Link to="/">Go back to the homepage</Link> */}
         </CallToAction>
       </CenteredContent>
